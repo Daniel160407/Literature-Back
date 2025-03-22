@@ -14,4 +14,12 @@ public class ModelConverter {
         books.forEach(book -> bookDtos.add(new BookDto(book.getTitle(), book.getDescription(), book.getAuthor())));
         return bookDtos;
     }
+
+    public Book convert(BookDto bookDto) {
+        return Book.builder()
+                .title(bookDto.getTitle())
+                .description(bookDto.getDescription())
+                .author(bookDto.getAuthor())
+                .build();
+    }
 }
